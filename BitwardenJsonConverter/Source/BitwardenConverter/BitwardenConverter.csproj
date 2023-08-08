@@ -24,4 +24,9 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <ProjectReference Include="..\Base.Contract\Base.Contract.csproj" />
+    <ProjectReference Include="..\BitwardenConverter.Contract\BitwardenConverter.Contract.csproj" />
+  </ItemGroup>
+
 </Project>
