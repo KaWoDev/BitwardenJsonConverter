@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract</AssemblyName>
+        <RootNamespace>KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract</RootNamespace>
+        <PackageId>KaWoDev.BitwardenJsonConverter.</PackageId>
+        <Authors>KaWoDev &amp; Github Contributers</Authors>
+        <PackageProjectUrl>https://github.com/kawodev/bitwardenJsonConverter</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/kawodev/bitwardenJsonConverter/License</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/kawodev/bitwardenJsonConverter</RepositoryUrl>
+        <Company>KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract</Company>
+        <Product>KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract</Product>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <OutputPath>../../bin/Debug/</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <OutputPath>../../bin/Release/</OutputPath>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+      <ProjectReference Include="..\Base.Contract\Base.Contract.csproj" />
+    </ItemGroup>
+
+</Project>
