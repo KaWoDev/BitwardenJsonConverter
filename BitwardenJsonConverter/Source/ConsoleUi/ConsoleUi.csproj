@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>KaWoDev.BitwardenJsonConverter.ConsoleUi</AssemblyName>
+    <RootNamespace>KaWoDev.BitwardenJsonConverter.ConsoleUi</RootNamespace>
+    <PackageId>KaWoDev.BitwardenJsonConverter.ConsoleUi</PackageId>
+    <Authors>KaWoDev &amp; Github Contributers</Authors>
+    <PackageProjectUrl>https://github.com/kawodev/bitwardenJsonConverter</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/kawodev/bitwardenJsonConverter/License</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/kawodev/bitwardenJsonConverter</RepositoryUrl>
+    <Company>KaWoDev.BitwardenJsonConverter.ConsoleUi</Company>
+    <Product>KaWoDev.BitwardenJsonConverter.ConsoleUi</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>../../bin/Debug/</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>../../bin/Release/</OutputPath>
+  </PropertyGroup>
+
+</Project>
