@@ -24,4 +24,9 @@
     <OutputPath>../../bin/Release/</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BitwardenConverter.Contract\BitwardenConverter.Contract.csproj" />
+    <ProjectReference Include="..\BitwardenConverter\BitwardenConverter.csproj" />
+  </ItemGroup>
+
 </Project>
