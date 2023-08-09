@@ -1,28 +1,28 @@
-using KaWoDev.BitwardenJsonConverter.BitwardenConverter;
+using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract;
 
 namespace KaWoDev.BitwardenJsonConverter.ConsoleUi;
 
 public class Workflow
 {
-	public string ReadJsonFile(string path)
+	private readonly IBitwardenJsonConverter _converter;
+	private readonly IMarkdownCreater _markdownCreater;
+
+	public Workflow(IBitwardenJsonConverter converter, IMarkdownCreater markdownCreater)
 	{
-		if (string.IsNullOrWhiteSpace(path))
-		{
-			throw new Exception($"Pfad '{path}' ist nicht gültig.");
-		}
-
-		var file = new FileInfo(path);
-		if (file.Exists == false)
-		{
-			throw new Exception($"Datei '{file.FullName}' zugriff nicht möglich.");
-		}
-
-		var fileContent = File.ReadAllText(file.FullName);
-
-		return fileContent;
+		_converter = converter;
+		_markdownCreater = markdownCreater;
 	}
-
-	public FileInfo GetSourceFileFromArguments(string[] args)
+	
+	public void CreateMarkdownFile(string[] args)
+	{
+		var sourcefile = GetSourceFileFromArguments(args);
+		var json = ReadJsonFile(sourcefile);
+		var markdown = CreateMarkdown(json, sourcefile.CreationTime);
+		
+		File.WriteAllText($"{sourcefile.FullName}.md", markdown);
+	}
+	
+	private FileInfo GetSourceFileFromArguments(string[] args)
 	{
 		if (args is null || args.Length == 0)
 		{
@@ -34,25 +34,27 @@ public class Workflow
 			throw new Exception("Falsche Parameteranzahl.");
 		}
 
-		var sourcefile = new FileInfo(args[1]);
-		if (sourcefile.Exists)
+		var result = new FileInfo(args[1]);
+		return result;
+	}
+	
+	private string ReadJsonFile(FileInfo sourcefile)
+	{
+		if (sourcefile.Exists == false)
 		{
-			throw new Exception($"Auf die Quelldatei '{sourcefile.FullName}' kann nicht zugegriffen werden.");
+			throw new Exception($"Datei '{sourcefile.FullName}' zugriff nicht möglich.");
 		}
 
-		return sourcefile;
+		var result = File.ReadAllText(sourcefile.FullName);
+		return result;
 	}
 
-	public void CreateMarkdownFile(FileInfo sourcefile)
+	private string CreateMarkdown(string json, DateTime sourceDate)
 	{
-		var json = new Workflow().ReadJsonFile(sourcefile.FullName);
+		var bitwarden = _converter.Deserialize(json);
 		
-		var converter = new BitwardenConverter.BitwardenJsonConverter();
-		var bitwarden = converter.Deserialize(json);
-		
-		var md = new MarkdownCreater().CreateMarkdown(bitwarden, sourcefile.CreationTime);
-
-		File.WriteAllText($"{sourcefile.FullName}.md", md);
-		Console.WriteLine($"Markdown Datei '{sourcefile.FullName}.md' erstellt.");
+		var result = _markdownCreater.CreateMarkdown(bitwarden, sourceDate);
+		return result;
 	}
+
 }

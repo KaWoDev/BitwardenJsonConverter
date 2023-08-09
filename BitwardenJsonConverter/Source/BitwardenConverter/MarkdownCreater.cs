@@ -1,12 +1,13 @@
 using System.Text;
 
 using KaWoDev.BitwardenJsonConverter.Base.Contract.Exceptions;
+using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.DataClasses;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.Exceptions;
 
 namespace KaWoDev.BitwardenJsonConverter.BitwardenConverter;
 
-public class MarkdownCreater
+public class MarkdownCreater : IMarkdownCreater
 {
 	public string CreateMarkdown(Bitwarden bitwarden, DateTime sourceDate)
 	{
