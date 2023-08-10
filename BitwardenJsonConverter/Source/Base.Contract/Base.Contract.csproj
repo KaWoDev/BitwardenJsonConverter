@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
     <AssemblyName>KaWoDev.BitwardenJsonConverter.Base.Contract</AssemblyName>
     <RootNamespace>KaWoDev.BitwardenJsonConverter.Base.Contract</RootNamespace>
-    <PackageId>KaWoDev.BitwardenJsonConverter.</PackageId>
     <Authors>KaWoDev &amp; Github Contributers</Authors>
     <PackageProjectUrl>https://github.com/kawodev/bitwardenJsonConverter</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/kawodev/bitwardenJsonConverter/License</PackageLicenseUrl>
