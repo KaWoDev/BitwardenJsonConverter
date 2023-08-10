@@ -34,7 +34,7 @@ public class Workflow
 			throw new Exception("Falsche Parameteranzahl.");
 		}
 
-		var result = new FileInfo(args[1]);
+		var result = new FileInfo(args[0]);
 		return result;
 	}
 	
