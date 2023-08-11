@@ -1,12 +1,13 @@
 ﻿using System.Text.Json;
 
 using KaWoDev.BitwardenJsonConverter.Base.Contract.Exceptions;
+using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.DataClasses;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.Exceptions;
 
 namespace KaWoDev.BitwardenJsonConverter.BitwardenConverter;
 
-public class BitwardenJsonConverter
+public class BitwardenJsonConverter : IBitwardenJsonConverter
 {
 	public Bitwarden Deserialize(string json)
 	{
@@ -25,7 +26,6 @@ public class BitwardenJsonConverter
 
 			return result;
 		}
-
 		catch (Exception e)
 		when(e is not BaseException)
 		{
