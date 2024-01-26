@@ -13,29 +13,23 @@ public class Workflow
 		_markdownCreater = markdownCreater;
 	}
 	
-	public void CreateMarkdownFile(string[] args)
+	public void CreateMarkdownFile(FileInfo source, FileInfo destination)
 	{
-		var sourcefile = GetSourceFileFromArguments(args);
-		var json = ReadJsonFile(sourcefile);
-		var markdown = CreateMarkdown(json, sourcefile.CreationTime);
+		// if (string.IsNullOrWhiteSpace(source))
+		// {
+		// 	throw new ArgumentException(nameof(source));
+		// }
+		//
+		// if (string.IsNullOrWhiteSpace(destination))
+		// {
+		// 	throw new ArgumentException(nameof(destination));
+		// }
 		
-		File.WriteAllText($"{sourcefile.FullName}.md", markdown);
-	}
-	
-	private FileInfo GetSourceFileFromArguments(string[] args)
-	{
-		if (args is null || args.Length == 0)
-		{
-			throw new Exception("Bitte geben Sie den Pfad zur Quelldatei als Parameter an.");
-		}
-
-		if (args.Length > 1)
-		{
-			throw new Exception("Falsche Parameteranzahl.");
-		}
-
-		var result = new FileInfo(args[0]);
-		return result;
+		// var sourcefile = new FileInfo(source);
+		var json = ReadJsonFile(source);
+		var markdown = CreateMarkdown(json, source.CreationTime);
+		
+		File.WriteAllText(destination.FullName, markdown);
 	}
 	
 	private string ReadJsonFile(FileInfo sourcefile)
