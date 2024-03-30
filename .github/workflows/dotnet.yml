@@ -25,5 +25,7 @@ jobs:
         cd BitwardenJsonConverter
         dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: |
+        cd BitwaredenJsonConverter
+        dotnet build --no-restore
 
