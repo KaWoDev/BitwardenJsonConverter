@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>KaWoDev.BitwardenJsonConverter.ConsoleUi</AssemblyName>
@@ -14,6 +14,7 @@
     <RepositoryUrl>https://github.com/kawodev/bitwardenJsonConverter</RepositoryUrl>
     <Company>KaWoDev.BitwardenJsonConverter.ConsoleUi</Company>
     <Product>KaWoDev.BitwardenJsonConverter.ConsoleUi</Product>
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -27,6 +28,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BitwardenConverter.Contract\BitwardenConverter.Contract.csproj" />
     <ProjectReference Include="..\BitwardenConverter\BitwardenConverter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="system.commandline" Version="2.0.0-beta4.22272.1" />
   </ItemGroup>
 
 </Project>

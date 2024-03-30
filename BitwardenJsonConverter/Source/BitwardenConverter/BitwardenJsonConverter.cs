@@ -1,6 +1,5 @@
 ﻿using System.Text.Json;
 
-using KaWoDev.BitwardenJsonConverter.Base.Contract.Exceptions;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.DataClasses;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.Exceptions;
@@ -11,6 +10,8 @@ public class BitwardenJsonConverter : IBitwardenJsonConverter
 {
 	public Bitwarden Deserialize(string json)
 	{
+		ArgumentException.ThrowIfNullOrWhiteSpace(json);
+
 		try
 		{
 			var serialOptions = new JsonSerializerOptions()
@@ -29,7 +30,7 @@ public class BitwardenJsonConverter : IBitwardenJsonConverter
 		catch (Exception e)
 		when(e is not BaseException)
 		{
-			var myEx = new BitwardenJsonConverterJsonDeserializeException("The BitwardenJson can not Deserialze",e);
+			var myEx = new JsonDeserializeException("The BitwardenJson can not Deserialze",e);
 			throw myEx;
 		}
 	}

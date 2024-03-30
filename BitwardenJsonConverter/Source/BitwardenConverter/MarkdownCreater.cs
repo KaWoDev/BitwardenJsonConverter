@@ -1,6 +1,5 @@
 using System.Text;
 
-using KaWoDev.BitwardenJsonConverter.Base.Contract.Exceptions;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.DataClasses;
 using KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.Exceptions;
@@ -11,6 +10,8 @@ public class MarkdownCreater : IMarkdownCreater
 {
 	public string CreateMarkdown(Bitwarden bitwarden, DateTime sourceDate)
 	{
+		ArgumentNullException.ThrowIfNull(bitwarden);
+
 		try
 		{
 			var result = new StringBuilder();
@@ -30,7 +31,7 @@ public class MarkdownCreater : IMarkdownCreater
 		catch (Exception e)
 		when(e is not BaseException)
 		{
-			var myEx = new BitwardenJsonConverterCreateMarkdownException("The Markdown can not be created.", e);
+			var myEx = new CreateMarkdownException("The Markdown can not be created.", e);
 			throw myEx;
 		}
 	}

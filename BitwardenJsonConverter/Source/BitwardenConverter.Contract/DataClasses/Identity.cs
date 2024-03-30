@@ -29,6 +29,5 @@ public class Identity
 	public string? LicenseNumber { get; set; }
 	public string? PassportNumber { get; set; }
 
-
 	public string? Username { get; set; }
 }

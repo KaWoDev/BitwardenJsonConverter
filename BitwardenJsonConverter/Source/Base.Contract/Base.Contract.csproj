@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblyName>KaWoDev.BitwardenJsonConverter.Base.Contract</AssemblyName>
@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/kawodev/bitwardenJsonConverter</RepositoryUrl>
     <Company>KaWoDev.BitwardenJsonConverter.Base.Contract</Company>
     <Product>KaWoDev.BitwardenJsonConverter.Base.Contract</Product>
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

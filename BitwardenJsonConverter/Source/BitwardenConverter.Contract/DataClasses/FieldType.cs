@@ -1,7 +1,8 @@
 namespace KaWoDev.BitwardenJsonConverter.BitwardenConverter.Contract.DataClasses;
 
-public class Folder
+public enum FieldType
 {
-	public string Id { get; set; }
-	public string Name { get; set; }
+    Text = 0,
+    Hidden = 1,
+    Bool = 2
 }
